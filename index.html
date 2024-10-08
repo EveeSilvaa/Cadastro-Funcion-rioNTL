@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortincon" href="Adicionar imagem">
+    <title>Cadastro de Funcionário</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+</head>
+<body>
+    <div class="container mt-5">
+        <h2 class="text-center">Cadastro de Funcionário</h2>
+        <form id="cadastro-form" action="salvar_funcionario.php" method="POST">
+            <div class="form-group">
+                <label for="nome">Nome Completo</label>
+                <input type="text" class="form-control" id="nome" name="nome" placeholder="Digite o nome completo" required>
+            </div>
+            <div class="form-group">
+                <label for="email">E-mail</label>
+                <input type="email" class="form-control" id="email" name="email" placeholder="Digite o e-mail" required>
+            </div>
+            <div class="form-group">
+                <label for="telefone">Telefone</label>
+                <input type="text" class="form-control" id="telefone" name="telefone" placeholder="Digite o telefone" required>
+            </div>
+            <div class="form-group">
+                <label for="cargo">Cargo</label>
+                <input type="text" class="form-control" id="cargo" name="cargo" placeholder="Digite o cargo" required>
+            </div>
+            <button type="submit" class="btn btn-primary">Salvar</button>
+        </form>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.16/jquery.mask.min.js"></script>
+    <script>
+        $(document).ready(function(){
+            $('#telefone').mask('(00) 00000-0000');
+            $('#email').on('blur', function() {
+                let email = $(this).val();
+                let emailPattern = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,6}$/;
+                if (!emailPattern.test(email)) {
+                    alert("Por favor, insira um e-mail válido.");
+                    $(this).focus();
+                }
+            });
+            
+            $('#cadastro-form').on('submit', function(e) {
+                let nome = $('#nome').val();
+                let email = $('#email').val();
+                let telefone = $('#telefone').val();
+                let cargo = $('#cargo').val();
+                
+                if (!nome || !email || !telefone || !cargo) {
+                    alert("Todos os campos devem ser preenchidos.");
+                    e.preventDefault();
+                }
+            });
+        });
+    </script>
+</body>
+</html>
