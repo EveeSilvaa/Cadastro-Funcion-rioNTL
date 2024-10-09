@@ -1,6 +1,6 @@
 ---
 
-# Sistema de Cadastro de Funcionários
+# Sistema de Cadastro de Usúarios
 
 Este projeto é um sistema simples de cadastro de funcionários desenvolvido em HTML, PHP e MySQL. Este README fornecerá as instruções necessárias para que você possa configurar e utilizar o sistema, mesmo que não tenha participado do desenvolvimento.
 
